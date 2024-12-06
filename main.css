@@ -1,0 +1,23 @@
+#sports h2 {
+  color: green;
+}
+
+#economy h2 {
+  color: gold;
+}
+
+#technology h2 {
+  color: purple;
+}
+
+#entertainment h2 {
+  color: red;
+}
+
+.creation-date {
+  color: #ccc;
+}
+
+img {
+  width: 600px;
+}
