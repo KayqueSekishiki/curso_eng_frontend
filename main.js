@@ -1,65 +1,61 @@
-const form = document.getElementById("form-activity");
-const imgApproved = `<img src="./images/aprovado.png" alt="Emoji Celebrando"`;
-const imgReproved = `<img src="./images/reprovado.png" alt="Emoji Decepcionado"`;
-const spanApproved = `<span class="result approved">Aprovado</span>`;
-const spanReproved = `<span class="result reproved">Reprovado</span>`;
+const form = document.getElementById("form");
+const numberOne = document.getElementById("number-one");
+const numberTwo = document.getElementById("number-two");
+const messageText = document.querySelector(".message-text");
 
-const activitiesNames = [];
-const activitiesGrades = [];
-const minGrade = parseFloat(prompt("Digite a nota mínima:"));
-let linhas = "";
+let message = "";
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  addRow();
-  updateTable();
-  updateFinalAvarage();
+  isGreat();
+  updateMessage();
+  showMessage();
+  clearInputs();
 });
 
-function addRow() {
-  const inputActivityName = document.getElementById("activity-name");
-  const inputActivityGrade = document.getElementById("activity-grade");
-
-  if (activitiesNames.includes(inputActivityName.value)) {
-    alert(`A atividade: ${inputActivityName.value} já foi inserida!`);
+function isGreat() {
+  if (numberTwo.value > numberOne.value) {
+    message = `O número digitado na opção B (${numberTwo.value}) é válido, pois é maior que o número digitado na opção A (${numberOne.value})`;
   } else {
-    activitiesNames.push(inputActivityName.value);
-    activitiesGrades.push(parseFloat(inputActivityGrade.value));
-
-    let linha = "<tr>";
-    linha += `<td>${inputActivityName.value}</td>`;
-    linha += `<td>${inputActivityGrade.value}</td>`;
-    linha += `<td>${
-      inputActivityGrade.value >= minGrade ? imgApproved : imgReproved
-    }</td>`;
-    linha += "</tr>";
-
-    linhas += linha;
+    message = `O número digitado na opção B (${numberTwo.value}) é invalido, pois é menor que o número digitado na opção A (${numberOne.value})`;
   }
-
-  inputActivityName.value = "";
-  inputActivityGrade.value = "";
 }
 
-function updateTable() {
-  const bodyTable = document.querySelector("tbody");
-  bodyTable.innerHTML = linhas;
-}
-
-function calculateFinalAverage() {
-  let sumGrades = 0;
-  for (let i = 0; i < activitiesGrades.length; i++) {
-    sumGrades += activitiesGrades[i];
+function updateMessage() {
+  messageText.innerHTML = message;
+  if (numberTwo.value > numberOne.value) {
+    messageText.classList.add("positive");
+    messageText.classList.remove("negative");
+  } else {
+    messageText.classList.add("negative");
+    messageText.classList.remove("positive");
   }
-
-  return (sumGrades / activitiesGrades.length).toFixed(1);
 }
 
-function updateFinalAvarage() {
-  const average = calculateFinalAverage();
+function showMessage() {
+  const messageContainer = document.querySelector(".message-container");
+  const messageContainerChildren = messageContainer.children;
+  for (let i = 0; i < messageContainerChildren.length; i++) {
+    const child = messageContainerChildren[i];
+    child.hidden = false;
+  }
+}
 
-  document.getElementById("final-average-value").innerHTML = average;
-  document.getElementById("final-average-result").innerHTML =
-    average >= minGrade ? spanApproved : spanReproved;
+function vanishMessage() {
+  const messageContainer = document.querySelector(".message-container");
+  const messageContainerChildren = messageContainer.children;
+  for (let i = 0; i < messageContainerChildren.length; i++) {
+    const child = messageContainerChildren[i];
+    child.hidden = true;
+  }
+}
+
+function clearInputs() {
+  numberOne.value = "";
+  numberTwo.value = "";
+
+  setTimeout(() => {
+    vanishMessage();
+  }, 2000);
 }

@@ -15,48 +15,40 @@
     <!-- Styles -->
     <link rel="stylesheet" href="main.css" />
 
-    <title>Calculadora de Médias</title>
+    <title>B é maior?</title>
   </head>
   <body>
     <div class="container">
       <header>
-        <img src="./images/logo.png" alt="capelo e diploma" />
-        <h1>Calculadora de Médias</h1>
+        <h1>A opção B é maior que opção A?</h1>
       </header>
-      <form id="form-activity">
-        <input
-          id="activity-name"
-          type="text"
-          placeholder="Nome da Atividade"
-          required
-        />
-        <input
-          id="activity-grade"
-          type="number"
-          placeholder="Nota da Atividade"
-          required
-          min="0"
-          max="10"
-        />
-        <button type="submit">Adicionar +</button>
+      <form id="form">
+        <div class="options-container">
+          <div>
+            <label for="number-one">Opção A</label>
+            <input
+              id="number-one"
+              type="number"
+              placeholder="Digite um número"
+              required
+            />
+          </div>
+          <div>
+            <label for="number-two">Opção B</label>
+            <input
+              id="number-two"
+              type="number"
+              placeholder="Digite outro número"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit">Comparar</button>
       </form>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome da Atividade</th>
-            <th>Nome da Atividade</th>
-            <th>Aprovado?</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <td>Média Final</td>
-            <td id="final-average-value">---</td>
-            <td id="final-average-result">---</td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="message-container">
+        <h2 hidden>Mensagem</h2>
+        <p class="message-text" hidden></p>
+      </div>
     </div>
 
     <script src="./main.js" defer></script>

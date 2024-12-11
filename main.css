@@ -17,42 +17,63 @@ body {
   padding-top: 100px;
 }
 
-header {
-  display: flex;
-  align-items: center;
-}
-
-header img {
-  height: 36px;
-  margin-right: 16px;
-}
-
-header h1 {
-  font-size: 40px;
-  font-weight: bold;
-}
-
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 64px;
+}
+
+header h1 {
+  font-size: 60px;
+  font-weight: bold;
 }
 
 /* Form */
 
 form {
   display: flex;
+  flex-direction: column;
   max-width: 640px;
   width: 100%;
   justify-content: space-between;
   margin-bottom: 56px;
 }
 
+form .options-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+form div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label,
+.message-container h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
 form input {
   font-size: 24px;
   background-color: var(--secundary-color);
   border: none;
-  border-bottom: 2px solid var(--tertiary-color);
   padding: 8px;
 }
 
@@ -66,42 +87,27 @@ form button {
   padding: 8px;
 }
 
-/* Table */
-
-table {
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 960px;
   width: 100%;
+  margin: 0 auto;
 }
 
-table th {
-  border-bottom: 2 px solid var(--tertiary-color);
-  padding: 16px;
+.message-text {
+  padding: 20px;
   font-size: 24px;
-  font-weight: bold;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-table td {
-  padding: 16px 0;
-  text-align: center;
-  font-size: 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.positive {
+  border: 2px solid #009432;
 }
 
-table td img {
-  height: 30px;
-}
-
-.result {
-  padding: 8px;
-  font-weight: bold;
-  color: var(--secundary-color);
-  background-color: var(--tertiary-color);
-  border-radius: 3px;
-}
-
-.approved {
-  background-color: var(--Approved-color);
-}
-
-.reproved {
-  background-color: red;
+.negative {
+  border: 2px solid red;
 }
