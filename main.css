@@ -90,7 +90,7 @@ table td img {
   height: 30px;
 }
 
-.resultado {
+.result {
   padding: 8px;
   font-weight: bold;
   color: var(--secundary-color);
@@ -98,10 +98,10 @@ table td img {
   border-radius: 3px;
 }
 
-.aprovado {
+.approved {
   background-color: var(--Approved-color);
 }
 
-.reprovado {
+.reproved {
   background-color: red;
 }
