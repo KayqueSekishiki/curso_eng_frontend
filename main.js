@@ -1,61 +1,35 @@
-const form = document.getElementById("form");
-const numberOne = document.getElementById("number-one");
-const numberTwo = document.getElementById("number-two");
-const messageText = document.querySelector(".message-text");
+$(document).ready(function () {
+  $("#add-task").click(function () {
+    const taskText = $("#new-task").val().trim();
+    if (taskText) {
+      const taskItem = `<li class="task-item">
+              <input class="task-item-input" type="text" value="${taskText}" disabled>
+              <button class="edit-btn">Editar</button>
+              <button class="delete-btn">Excluir</button>
+          </li>`;
+      $("#task-list").append(taskItem);
+      $("#new-task").val("");
+    }
+  });
 
-let message = "";
+  $("#task-list").on("click", ".edit-btn, .save-btn", function () {
+    const input = $(this).siblings("input");
+    if ($(this).hasClass("edit-btn")) {
+      input.prop("disabled", false).focus();
+      $(this).text("Salvar").removeClass("edit-btn").addClass("save-btn");
+    } else if ($(this).hasClass("save-btn")) {
+      input.prop("disabled", true);
+      input.val(input.val().trim());
+      $(this).text("Editar").removeClass("save-btn").addClass("edit-btn");
+    }
+  });
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  $("#task-list").on("click", ".delete-btn", function () {
+    $(this).parent().remove();
+  });
 
-  isGreat();
-  updateMessage();
-  showMessage();
-  clearInputs();
+  $("#task-list").on("click", "input", function () {
+    const listItem = $(this).parent();
+    listItem.toggleClass("completed");
+  });
 });
-
-function isGreat() {
-  if (numberTwo.value > numberOne.value) {
-    message = `O número digitado na opção B (${numberTwo.value}) é válido, pois é maior que o número digitado na opção A (${numberOne.value})`;
-  } else {
-    message = `O número digitado na opção B (${numberTwo.value}) é invalido, pois é menor que o número digitado na opção A (${numberOne.value})`;
-  }
-}
-
-function updateMessage() {
-  messageText.innerHTML = message;
-  if (numberTwo.value > numberOne.value) {
-    messageText.classList.add("positive");
-    messageText.classList.remove("negative");
-  } else {
-    messageText.classList.add("negative");
-    messageText.classList.remove("positive");
-  }
-}
-
-function showMessage() {
-  const messageContainer = document.querySelector(".message-container");
-  const messageContainerChildren = messageContainer.children;
-  for (let i = 0; i < messageContainerChildren.length; i++) {
-    const child = messageContainerChildren[i];
-    child.hidden = false;
-  }
-}
-
-function vanishMessage() {
-  const messageContainer = document.querySelector(".message-container");
-  const messageContainerChildren = messageContainer.children;
-  for (let i = 0; i < messageContainerChildren.length; i++) {
-    const child = messageContainerChildren[i];
-    child.hidden = true;
-  }
-}
-
-function clearInputs() {
-  numberOne.value = "";
-  numberTwo.value = "";
-
-  setTimeout(() => {
-    vanishMessage();
-  }, 2000);
-}

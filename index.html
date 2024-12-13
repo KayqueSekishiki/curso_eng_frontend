@@ -3,54 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Styles -->
+    <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="main.css" />
-
-    <title>B é maior?</title>
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>A opção B é maior que opção A?</h1>
-      </header>
-      <form id="form">
-        <div class="options-container">
-          <div>
-            <label for="number-one">Opção A</label>
-            <input
-              id="number-one"
-              type="number"
-              placeholder="Digite um número"
-              required
-            />
-          </div>
-          <div>
-            <label for="number-two">Opção B</label>
-            <input
-              id="number-two"
-              type="number"
-              placeholder="Digite outro número"
-              required
-            />
-          </div>
-        </div>
-        <button type="submit">Comparar</button>
-      </form>
-      <div class="message-container">
-        <h2 hidden>Mensagem</h2>
-        <p class="message-text" hidden></p>
+      <div>
+        <h1>Lista de Tarefas</h1>
+        <input
+          type="text"
+          id="new-task"
+          placeholder="Adicionar nova tarefa..."
+        />
+        <button id="add-task">Adicionar</button>
       </div>
-    </div>
+      <ul class="task-list" id="task-list"></ul>
 
-    <script src="./main.js" defer></script>
+      <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"
+      ></script>
+      <script src="./main.js"></script>
+    </div>
   </body>
 </html>
