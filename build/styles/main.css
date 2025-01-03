@@ -1,10 +1,32 @@
+.marginBottom8 {
+  margin-bottom: 8px;
+}
+.fontSize14 {
+  font-size: 14px;
+}
+.listStyleNone {
+  list-style: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 body {
   background-color: #192a56;
   color: #f5f6fa;
 }
+li {
+  list-style: none;
+}
 .container {
-  max-width: 960xp;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 960px;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
@@ -16,4 +38,61 @@ body {
   .container {
     max-width: 80%;
   }
+}
+header {
+  padding-bottom: 24px;
+}
+header .profile-avatar {
+  width: 100px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+}
+header .profile-bio {
+  text-align: center;
+}
+header .profile-bio-name {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+header .profile-bio-subtitle {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+header .profile-bio-description {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+.social-link li img {
+  transition: all ease 0.3s;
+}
+.social-link li img:hover {
+  transform: scale(1.2);
+}
+.project-list {
+  margin-top: 32px;
+}
+.project-list-item a {
+  display: block;
+  text-decoration: none;
+  background-color: #0097e6;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #f5f6fa;
+  font-weight: bold;
+  border: 5px solid #0097e6;
+  border-radius: 30px;
+  transition: all ease 0.5s;
+}
+.project-list-item a:hover {
+  color: #0097e6;
+  background-color: transparent;
 }

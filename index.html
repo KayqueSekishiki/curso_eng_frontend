@@ -5,26 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./build/styles/main.css" />
     <link rel="stylesheet" href="./build/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Aatrox</title>
   </head>
   <body>
     <div class="container">
       <header>
-        <img src="./src/images/aatrox.jpg" alt="Foto de Perfil do Aatrox" />
-        <h1>Página do Aatrox</h1>
-        <h2>A espada Darkin</h2>
-        <p>Ouçam, o silêncio depois da aniquilação!</p>
+        <img
+          class="profile-avatar"
+          src="./src/images/aatrox.jpg"
+          alt="Foto de Perfil do Aatrox"
+        />
+        <div class="profile-bio">
+          <h1 class="profile-bio-name">Página do Aatrox</h1>
+          <h2 class="profile-bio-subtitle">A espada Darkin</h2>
+          <p class="profile-bio-description">
+            Ouçam, o silêncio depois da aniquilação!
+          </p>
+        </div>
       </header>
-      <section>
-        <nav>
-          <ul>
-            <li><a href="">Instagram</a></li>
-            <li><a href="">Linkedin</a></li>
-            <li><a href="">Github</a></li>
-            <li><a href="">Email</a></li>
-          </ul>
-        </nav>
-      </section>
+
+      <nav>
+        <ul class="social-link">
+          <li>
+            <a href="https://www.instagram.com"
+              ><img src="./src/images/icons/instagram.svg" alt="Instagram"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com"
+              ><img src="./src/images/icons/linkedin.svg" alt="LinkedIn"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.github.com"
+              ><img src="./src/images/icons/github.svg" alt="Github"
+            /></a>
+          </li>
+          <li>
+            <a href=""
+              ><img src="./src/images/icons/mail.svg" alt="E-mail"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul class="project-list">
+          <li class="project-list-item">
+            <a href="">Visite o projeto "Caculadora de médias"</a>
+          </li>
+          <li class="project-list-item">
+            <a href="">Visite o projeto "Games Shop"</a>
+          </li>
+          <li class="project-list-item">
+            <a href="">Visite o projeto "Galeria de Fotos"</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </body>
 </html>
