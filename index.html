@@ -10,9 +10,69 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <title>Ajax</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <div class="container">
+      <form>
+        <div class="row mt-5">
+          <h4>Dados Básicos</h4>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="Nome" />
+          </div>
+          <div class="col-5">
+            <input class="form-control" type="text" placeholder="Sobrenome" />
+          </div>
+          <div class="col-4">
+            <input class="form-control" type="email" placeholder="E-mail" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <h4>Dados da Entrega</h4>
+        </div>
+        <div class="row mb-5">
+          <div class="col-3 d-flex">
+            <input
+              id="zipcode"
+              class="form-control"
+              type="text"
+              placeholder="CEP"
+            />
+            <button
+              id="btn-search-zipcode"
+              class="btn btn-primary"
+              type="button"
+            >
+              <i class="bi bi-search"></i>
+              <span class="spinner-border spinner-border-sm d-none"></span>
+            </button>
+          </div>
+
+          <div class="col-7">
+            <input
+              id="address"
+              class="form-control"
+              type="text"
+              placeholder="Endereço"
+            />
+          </div>
+
+          <div class="col-2">
+            <input class="form-control" type="number" placeholder="Número" />
+          </div>
+        </div>
+        <button class="btn btn-success">Enviar Pedido</button>
+      </form>
+    </div>
+
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./jquery.mask.min.js"></script>
+    <script src="./main.js" defer></script>
   </body>
 </html>
