@@ -52,4 +52,12 @@ $(document).ready(function () {
         }, 2000);
       });
   });
+
+  $("#order-form").submit((e) => {
+    e.preventDefault();
+
+    if ($("#name").val().length == 0) {
+      throw new Error("Digite o nome");
+    }
+  });
 });
