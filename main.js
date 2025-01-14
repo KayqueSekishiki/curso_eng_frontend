@@ -1,63 +1,30 @@
 $(document).ready(function () {
-  $("#zipcode").mask("00000-000");
+  const name = document.querySelector(".profile-name");
+  const username = document.querySelector(".profile-username");
+  const avatar = document.querySelector(".profile-avatar");
+  const repos = document.querySelector("#repos");
+  const followers = document.querySelector("#followers");
+  const following = document.querySelector("#following");
+  const link = document.querySelector(".profile-link");
 
-  $("#btn-search-zipcode").click(() => {
-    const zipcode = $("#zipcode").val();
-    const endpoint = `https://viacep.com.br/ws/${zipcode}/json`;
-    const button = $(this);
+  const endpoint = "https://api.github.com/users/kayquesekishiki";
 
-    $(this).find("i").addClass("d-none");
-    $(this).find("span").removeClass("d-none");
-
-    // $.ajax(endpoint).done((res) => {
-    //   console.log(res);
-    //   const publicPlace = res.logradouro;
-    //   const neighborhood = res.bairro;
-    //   const city = res.localidade;
-    //   const state = res.estado;
-    //   const address = `${publicPlace}, ${neighborhood} - ${city} - ${state}`;
-    //   $("#address").val(address);
-    // });
-
-    // setTimeout(() => {
-    //   $(button).find("i").removeClass("d-none");
-    //   $(button).find("span").addClass("d-none");
-    // }, 2000);
-
-    fetch(endpoint)
-      .then((res) => {
-        console.log(res);
-
-        return res.json();
-      })
-      .then((json) => {
-        console.log(json);
-
-        const publicPlace = json.logradouro;
-        const neighborhood = json.bairro;
-        const city = json.localidade;
-        const state = json.estado;
-        const address = `${publicPlace}, ${neighborhood} - ${city} - ${state}`;
-        $("#address").val(address);
-      })
-      .catch((error) => {
-        alert(
-          "Ocorreu um erro ao buscar o endereço, tente novamente mais tarde."
-        );
-      })
-      .finally(() => {
-        setTimeout(() => {
-          $(button).find("i").removeClass("d-none");
-          $(button).find("span").addClass("d-none");
-        }, 2000);
-      });
-  });
-
-  $("#order-form").submit((e) => {
-    e.preventDefault();
-
-    if ($("#name").val().length == 0) {
-      throw new Error("Digite o nome");
-    }
-  });
+  fetch(endpoint)
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      name.innerText = json.name;
+      username.innerText = "@" + json.login;
+      avatar.src = json.avatar_url;
+      repos.innerText = json.public_repos;
+      followers.innerText = json.followers;
+      following.innerText = json.following;
+      link.href = json.html_url;
+    })
+    .catch((error) => {
+      alert(
+        "Ocorreu um erro ao buscar este perfil no github, por favor, tente novamente mais tarde."
+      );
+    });
 });
